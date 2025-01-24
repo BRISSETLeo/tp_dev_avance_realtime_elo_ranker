@@ -8,10 +8,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppService = void 0;
 const common_1 = require("@nestjs/common");
+const rxjs_1 = require("rxjs");
 let AppService = class AppService {
     constructor() {
         this.players = [];
         this.matches = [];
+        this.observers = [];
+    }
+    getRankingUpdates() {
+        return new rxjs_1.Observable(observer => {
+            this.observers.push(observer);
+            observer.next(this.players);
+            return () => {
+                this.observers = this.observers.filter(obs => obs !== observer);
+            };
+        });
+    }
+    notifyObservers(player) {
+        this.observers.forEach(obs => obs.next({ type: "RankingUpdate", player: player }));
     }
 };
 exports.AppService = AppService;

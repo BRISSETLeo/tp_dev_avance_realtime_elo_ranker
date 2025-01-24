@@ -33,11 +33,19 @@ let MatchController = class MatchController {
                 message: 'Un des deux joueurs n\'existe pas'
             }, common_1.HttpStatus.UNPROCESSABLE_ENTITY);
         }
+        const K = 32;
+        const expectedScoreWinner = 1 / (1 + Math.pow(10, (loserPlayer.rank - winnerPlayer.rank) / 400));
+        const expectedScoreLoser = 1 / (1 + Math.pow(10, (winnerPlayer.rank - loserPlayer.rank) / 400));
         if (!draw) {
-            winnerPlayer.rank += 1;
-            loserPlayer.rank -= 1;
+            winnerPlayer.rank = Math.round(winnerPlayer.rank + K * (1 - expectedScoreWinner));
+            loserPlayer.rank = Math.round(loserPlayer.rank + K * (0 - expectedScoreLoser));
         }
-        this.appService.matches.push(matchResult);
+        else {
+            winnerPlayer.rank = Math.round(winnerPlayer.rank + K * (0.5 - expectedScoreWinner));
+            loserPlayer.rank = Math.round(loserPlayer.rank + K * (0.5 - expectedScoreLoser));
+        }
+        this.appService.matches.push({ winner: winnerPlayer, loser: loserPlayer });
+        this.appService.notifyObservers(winnerPlayer);
         return {
             ok: true,
             code: 200,

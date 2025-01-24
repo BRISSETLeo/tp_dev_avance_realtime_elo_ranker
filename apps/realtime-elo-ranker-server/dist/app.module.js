@@ -12,13 +12,15 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const player_controller_1 = require("./player/player.controller");
 const match_controller_1 = require("./match/match.controller");
+const ranking_controller_1 = require("./ranking/ranking.controller");
+const ranking_events_controller_1 = require("./ranking/events/ranking.events.controller");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [],
-        controllers: [app_controller_1.AppController, player_controller_1.PlayerController, match_controller_1.MatchController],
+        controllers: [app_controller_1.AppController, player_controller_1.PlayerController, match_controller_1.MatchController, ranking_controller_1.RankingController, ranking_events_controller_1.RankingEventsController],
         providers: [app_service_1.AppService],
     })
 ], AppModule);
