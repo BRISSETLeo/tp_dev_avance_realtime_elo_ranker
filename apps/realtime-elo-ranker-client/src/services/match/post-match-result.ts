@@ -21,6 +21,9 @@ export default function postMatchResult(baseUrl: string, adversaryA: string, adv
     headers: {
       "Content-Type": "application/json",
     },
-  }
-  )
+  }).then(response => response.json())
+  .then(data => {
+    console.log(data);
+    return data;
+  });
 }

@@ -15,5 +15,9 @@ export default function postPlayer(baseUrl: string, id: string): Promise<Respons
     headers: {
       "Content-Type": "application/json",
     },
+  })
+  .then(response => response.json())
+  .then(data => {
+    return data;
   });
 }

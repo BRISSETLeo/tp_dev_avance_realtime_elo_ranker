@@ -12,59 +12,62 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PlayerController = void 0;
+exports.MatchController = void 0;
 const common_1 = require("@nestjs/common");
 const app_service_1 = require("../app.service");
-let PlayerController = class PlayerController {
+let MatchController = class MatchController {
     constructor(appService) {
         this.appService = appService;
     }
     getAll() {
-        return JSON.stringify(this.appService.players);
+        return JSON.stringify(this.appService.matches);
     }
-    addPlayer(body) {
-        if (!body.id) {
-            return {
+    publishMatchResult(matchResult) {
+        const { winner, loser, draw } = matchResult;
+        const winnerPlayer = this.appService.players.find(player => player.id === winner);
+        const loserPlayer = this.appService.players.find(player => player.id === loser);
+        if (!winnerPlayer || !loserPlayer) {
+            throw new common_1.HttpException({
                 ok: false,
-                code: 400,
-                message: "L'identifiant du joueur n'est pas valide"
-            };
+                code: 422,
+                message: 'Un des deux joueurs n\'existe pas'
+            }, common_1.HttpStatus.UNPROCESSABLE_ENTITY);
         }
-        const playerExists = this.appService.players.some(player => player.id === body.id);
-        if (playerExists) {
-            return {
-                ok: false,
-                code: 409,
-                message: "Le joueur existe déjà"
-            };
+        if (!draw) {
+            winnerPlayer.rank += 1;
+            loserPlayer.rank -= 1;
         }
-        if (!body.rank) {
-            body.rank = 0;
-        }
-        this.appService.players.push(body);
+        this.appService.matches.push(matchResult);
         return {
             ok: true,
             code: 200,
-            message: 'Joueur créé avec succès'
+            winner: {
+                id: winner,
+                rank: winnerPlayer.rank
+            },
+            loser: {
+                id: loser,
+                rank: loserPlayer.rank
+            }
         };
     }
 };
-exports.PlayerController = PlayerController;
+exports.MatchController = MatchController;
 __decorate([
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", String)
-], PlayerController.prototype, "getAll", null);
+], MatchController.prototype, "getAll", null);
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Object)
-], PlayerController.prototype, "addPlayer", null);
-exports.PlayerController = PlayerController = __decorate([
-    (0, common_1.Controller)('api/player'),
+    __metadata("design:returntype", void 0)
+], MatchController.prototype, "publishMatchResult", null);
+exports.MatchController = MatchController = __decorate([
+    (0, common_1.Controller)('api/match'),
     __metadata("design:paramtypes", [app_service_1.AppService])
-], PlayerController);
-//# sourceMappingURL=player.controller.js.map
+], MatchController);
+//# sourceMappingURL=match.controller.js.map
