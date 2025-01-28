@@ -7,16 +7,23 @@ export class MatchController {
     constructor(private readonly appService: AppService) {}
 
     @Get()
-    getAll(): string {
-        return JSON.stringify(this.appService.matches);
+    async getAll(): Promise<string> {
+        return await this.appService.getMatches();
     }
 
     @Post()
-    publishMatchResult(@Body() matchResult: { winner: string, loser: string, draw: boolean }) {
+    async publishMatchResult(@Body() matchResult: { winner: string, loser: string, draw: boolean }) {
         const { winner, loser, draw } = matchResult;
 
-        const winnerPlayer = this.appService.players.find(player => player.id === winner);
-        const loserPlayer = this.appService.players.find(player => player.id === loser);
+        if(draw) {
+            return {
+                ok: true,
+                code: 200
+            }
+        }
+
+        const winnerPlayer = await this.appService.getPlayer(winner);
+        const loserPlayer = await this.appService.getPlayer(loser);
 
         if (!winnerPlayer || !loserPlayer) {
             throw new HttpException({
@@ -28,19 +35,22 @@ export class MatchController {
 
         const K = 32;
 
-        const expectedScoreWinner = 1 / (1 + Math.pow(10, (loserPlayer.rank - winnerPlayer.rank) / 400));
-        const expectedScoreLoser = 1 / (1 + Math.pow(10, (winnerPlayer.rank - loserPlayer.rank) / 400));
+        
 
         if (!draw) {
+            const expectedScoreWinner = 1 / (1 + Math.pow(10, (loserPlayer.rank - winnerPlayer.rank) / 400));
+            const expectedScoreLoser = 1 / (1 + Math.pow(10, (winnerPlayer.rank - loserPlayer.rank) / 400));
+            
             winnerPlayer.rank = Math.round(winnerPlayer.rank + K * (1 - expectedScoreWinner));
             loserPlayer.rank = Math.round(loserPlayer.rank + K * (0 - expectedScoreLoser));
-        } else {
-            winnerPlayer.rank = Math.round(winnerPlayer.rank + K * (0.5 - expectedScoreWinner));
-            loserPlayer.rank = Math.round(loserPlayer.rank + K * (0.5 - expectedScoreLoser));
-        }
+        } 
 
-        this.appService.matches.push({winner: winnerPlayer, loser: loserPlayer});
+        await this.appService.updatePlayer(winnerPlayer);
+        await this.appService.updatePlayer(loserPlayer);
+
+        this.appService.addMatch({winner: winnerPlayer.id, loser: loserPlayer.id});
         this.appService.notifyObservers(winnerPlayer);
+        this.appService.notifyObservers(loserPlayer);
         return {
             ok: true,
             code: 200,

@@ -4,6 +4,8 @@ Realtime Elo Ranker est une application web permettant de simuler des matchs ent
 
 ## Conteneurs Métiers
 
+# PROBLEME: Tout les elo ne sont pas mis à jour en temps réel
+# PROBLEME: quand je refresh la page, le classement n'est plus trié
 `apps/realtime-elo-ranker-server` : Serveur de l'application (à implémenter)
   - Sera basé sur NestJS
   - Gèrera le calcul des résultat de matchs et le classement des joueurs

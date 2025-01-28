@@ -19,10 +19,10 @@ let PlayerController = class PlayerController {
     constructor(appService) {
         this.appService = appService;
     }
-    getAll() {
-        return JSON.stringify(this.appService.players);
+    async getAll() {
+        return await this.appService.getPlayers();
     }
-    addPlayer(body) {
+    async addPlayer(body) {
         if (!body.id) {
             return {
                 ok: false,
@@ -30,7 +30,7 @@ let PlayerController = class PlayerController {
                 message: "L'identifiant du joueur n'est pas valide"
             };
         }
-        const playerExists = this.appService.players.some(player => player.id === body.id);
+        const playerExists = await this.appService.getPlayer(body.id);
         if (playerExists) {
             return {
                 ok: false,
@@ -41,10 +41,11 @@ let PlayerController = class PlayerController {
         if (!body.rank) {
             body.rank = 1000;
         }
-        const totalRank = this.appService.players.reduce((sum, player) => sum + player.rank, 0);
-        const averageRank = this.appService.players.length ? totalRank / this.appService.players.length : 0;
+        const players = await this.appService.getAllPlayers();
+        const totalRank = players.reduce((sum, player) => sum + player.rank, 0);
+        const averageRank = players.length ? totalRank / players.length : 0;
         body.rank = body.rank || averageRank;
-        this.appService.players.push(body);
+        this.appService.addPlayer(body);
         this.appService.notifyObservers(body);
         return {
             ok: true,
@@ -58,14 +59,14 @@ __decorate([
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", String)
+    __metadata("design:returntype", Promise)
 ], PlayerController.prototype, "getAll", null);
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Object)
+    __metadata("design:returntype", Promise)
 ], PlayerController.prototype, "addPlayer", null);
 exports.PlayerController = PlayerController = __decorate([
     (0, common_1.Controller)('api/player'),

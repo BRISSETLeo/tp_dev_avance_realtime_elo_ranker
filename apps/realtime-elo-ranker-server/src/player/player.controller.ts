@@ -1,6 +1,5 @@
 import { Controller, Get, Post, Body } from '@nestjs/common';
 import { AppService } from '../app.service';
-import { ok } from 'assert';
 
 @Controller('api/player')
 export class PlayerController {
@@ -8,12 +7,12 @@ export class PlayerController {
     constructor(private readonly appService: AppService) {}
 
     @Get()
-    getAll(): string {
-        return JSON.stringify(this.appService.players);
+    async getAll(): Promise<string> {
+        return await this.appService.getPlayers();
     }
 
     @Post()
-    addPlayer(@Body() body: any): any {
+    async addPlayer(@Body() body: any): Promise<any> {
         if (!body.id) {
             return {
                 ok: false,
@@ -22,7 +21,7 @@ export class PlayerController {
             };
         }
 
-        const playerExists = this.appService.players.some(player => player.id === body.id);
+        const playerExists = await this.appService.getPlayer(body.id);
         if (playerExists) {
             return {
                 ok: false,
@@ -35,11 +34,13 @@ export class PlayerController {
             body.rank = 1000;
         }
 
-        const totalRank = this.appService.players.reduce((sum, player) => sum + player.rank, 0);
-        const averageRank = this.appService.players.length ? totalRank / this.appService.players.length : 0;
+        const players = await this.appService.getAllPlayers();
+        const totalRank = players.reduce((sum, player) => sum + player.rank, 0);
+        const averageRank = players.length ? totalRank / players.length : 0;
         body.rank = body.rank || averageRank;
-        this.appService.players.push(body);
+        this.appService.addPlayer(body);
         this.appService.notifyObservers(body);
+
         return {
             ok: true,
             code: 200,
