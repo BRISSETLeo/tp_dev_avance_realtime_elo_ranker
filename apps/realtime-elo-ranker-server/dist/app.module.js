@@ -16,6 +16,8 @@ const match_controller_1 = require("./match/match.controller");
 const ranking_controller_1 = require("./ranking/ranking.controller");
 const ranking_events_controller_1 = require("./ranking/events/ranking.events.controller");
 const event_emitter_1 = require("@nestjs/event-emitter");
+const match_service_1 = require("./match/match.service");
+const player_service_1 = require("./player/player.service");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -31,7 +33,7 @@ exports.AppModule = AppModule = __decorate([
             }),
         ],
         controllers: [app_controller_1.AppController, player_controller_1.PlayerController, match_controller_1.MatchController, ranking_controller_1.RankingController, ranking_events_controller_1.RankingEventsController],
-        providers: [app_service_1.AppService],
+        providers: [app_service_1.AppService, match_service_1.MatchService, player_service_1.PlayerService],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map

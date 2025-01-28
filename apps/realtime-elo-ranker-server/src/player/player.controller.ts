@@ -1,14 +1,15 @@
 import { Controller, Get, Post, Body } from '@nestjs/common';
 import { AppService } from '../app.service';
+import { PlayerService } from './player.service';
 
 @Controller('api/player')
 export class PlayerController {
 
-    constructor(private readonly appService: AppService) {}
+    constructor(private readonly playerService: PlayerService, private readonly appService: AppService) {}
 
     @Get()
     async getAll(): Promise<string> {
-        return await this.appService.getPlayers();
+        return await this.playerService.getPlayers();
     }
 
     @Post()
@@ -21,7 +22,7 @@ export class PlayerController {
             };
         }
 
-        const playerExists = await this.appService.getPlayer(body.id);
+        const playerExists = await this.playerService.getPlayer(body.id);
         if (playerExists) {
             return {
                 ok: false,
@@ -34,11 +35,12 @@ export class PlayerController {
             body.rank = 1000;
         }
 
-        const players = await this.appService.getAllPlayers();
+        const players = await this.playerService.getAllPlayers();
         const totalRank = players.reduce((sum, player) => sum + player.rank, 0);
         const averageRank = players.length ? totalRank / players.length : 0;
         body.rank = body.rank || averageRank;
-        this.appService.addPlayer(body);
+        
+        this.playerService.addPlayer(body);
         this.appService.notifyObservers(body);
 
         return {

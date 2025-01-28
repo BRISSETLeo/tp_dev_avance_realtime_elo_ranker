@@ -1,7 +1,11 @@
 import { AppService } from 'src/app.service';
+import { MatchService } from './match.service';
+import { PlayerService } from 'src/player/player.service';
 export declare class MatchController {
     private readonly appService;
-    constructor(appService: AppService);
+    private readonly matchService;
+    private readonly playerService;
+    constructor(appService: AppService, matchService: MatchService, playerService: PlayerService);
     getAll(): Promise<string>;
     publishMatchResult(matchResult: {
         winner: string;

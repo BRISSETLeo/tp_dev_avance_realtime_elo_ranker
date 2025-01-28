@@ -15,12 +15,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PlayerController = void 0;
 const common_1 = require("@nestjs/common");
 const app_service_1 = require("../app.service");
+const player_service_1 = require("./player.service");
 let PlayerController = class PlayerController {
-    constructor(appService) {
+    constructor(playerService, appService) {
+        this.playerService = playerService;
         this.appService = appService;
     }
     async getAll() {
-        return await this.appService.getPlayers();
+        return await this.playerService.getPlayers();
     }
     async addPlayer(body) {
         if (!body.id) {
@@ -30,7 +32,7 @@ let PlayerController = class PlayerController {
                 message: "L'identifiant du joueur n'est pas valide"
             };
         }
-        const playerExists = await this.appService.getPlayer(body.id);
+        const playerExists = await this.playerService.getPlayer(body.id);
         if (playerExists) {
             return {
                 ok: false,
@@ -41,11 +43,11 @@ let PlayerController = class PlayerController {
         if (!body.rank) {
             body.rank = 1000;
         }
-        const players = await this.appService.getAllPlayers();
+        const players = await this.playerService.getAllPlayers();
         const totalRank = players.reduce((sum, player) => sum + player.rank, 0);
         const averageRank = players.length ? totalRank / players.length : 0;
         body.rank = body.rank || averageRank;
-        this.appService.addPlayer(body);
+        this.playerService.addPlayer(body);
         this.appService.notifyObservers(body);
         return {
             ok: true,
@@ -70,6 +72,6 @@ __decorate([
 ], PlayerController.prototype, "addPlayer", null);
 exports.PlayerController = PlayerController = __decorate([
     (0, common_1.Controller)('api/player'),
-    __metadata("design:paramtypes", [app_service_1.AppService])
+    __metadata("design:paramtypes", [player_service_1.PlayerService, app_service_1.AppService])
 ], PlayerController);
 //# sourceMappingURL=player.controller.js.map

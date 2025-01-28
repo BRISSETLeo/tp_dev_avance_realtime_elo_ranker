@@ -1,14 +1,14 @@
 import { Controller, Get, HttpException, HttpStatus } from '@nestjs/common';
-import { AppService } from 'src/app.service';
+import { PlayerService } from '../player/player.service';
 
 @Controller('api/ranking')
 export class RankingController {
 
-    constructor(private readonly appService: AppService) {}
+    constructor(private readonly playerService: PlayerService) {}
 
     @Get()
     async getRanking() {
-        const players = await this.appService.getPlayers();
+        const players = await this.playerService.getPlayers();
         if (players.length === 0) {
             throw new HttpException({
                 ok: false,

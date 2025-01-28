@@ -15,12 +15,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MatchController = void 0;
 const common_1 = require("@nestjs/common");
 const app_service_1 = require("../app.service");
+const match_service_1 = require("./match.service");
+const player_service_1 = require("../player/player.service");
 let MatchController = class MatchController {
-    constructor(appService) {
+    constructor(appService, matchService, playerService) {
         this.appService = appService;
+        this.matchService = matchService;
+        this.playerService = playerService;
     }
     async getAll() {
-        return await this.appService.getMatches();
+        return await this.matchService.getMatches();
     }
     async publishMatchResult(matchResult) {
         const { winner, loser, draw } = matchResult;
@@ -30,8 +34,8 @@ let MatchController = class MatchController {
                 code: 200
             };
         }
-        const winnerPlayer = await this.appService.getPlayer(winner);
-        const loserPlayer = await this.appService.getPlayer(loser);
+        const winnerPlayer = await this.playerService.getPlayer(winner);
+        const loserPlayer = await this.playerService.getPlayer(loser);
         if (!winnerPlayer || !loserPlayer) {
             throw new common_1.HttpException({
                 ok: false,
@@ -46,9 +50,9 @@ let MatchController = class MatchController {
             winnerPlayer.rank = Math.round(winnerPlayer.rank + K * (1 - expectedScoreWinner));
             loserPlayer.rank = Math.round(loserPlayer.rank + K * (0 - expectedScoreLoser));
         }
-        await this.appService.updatePlayer(winnerPlayer);
-        await this.appService.updatePlayer(loserPlayer);
-        this.appService.addMatch({ winner: winnerPlayer.id, loser: loserPlayer.id });
+        await this.playerService.updatePlayer(winnerPlayer);
+        await this.playerService.updatePlayer(loserPlayer);
+        this.matchService.addMatch({ winner: winnerPlayer.id, loser: loserPlayer.id });
         this.appService.notifyObservers(winnerPlayer);
         this.appService.notifyObservers(loserPlayer);
         return {
@@ -81,6 +85,6 @@ __decorate([
 ], MatchController.prototype, "publishMatchResult", null);
 exports.MatchController = MatchController = __decorate([
     (0, common_1.Controller)('api/match'),
-    __metadata("design:paramtypes", [app_service_1.AppService])
+    __metadata("design:paramtypes", [app_service_1.AppService, match_service_1.MatchService, player_service_1.PlayerService])
 ], MatchController);
 //# sourceMappingURL=match.controller.js.map

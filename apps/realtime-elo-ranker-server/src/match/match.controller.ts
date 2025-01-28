@@ -1,14 +1,16 @@
 import { Controller, Get, Body, Post, HttpException, HttpStatus } from '@nestjs/common';
-import { AppService } from 'src/app.service';
+import { AppService } from '../app.service';
+import { MatchService } from './match.service';
+import { PlayerService } from '../player/player.service';
 
 @Controller('api/match')
 export class MatchController {
     
-    constructor(private readonly appService: AppService) {}
+    constructor(private readonly appService: AppService, private readonly matchService: MatchService, private readonly playerService: PlayerService) {}
 
     @Get()
     async getAll(): Promise<string> {
-        return await this.appService.getMatches();
+        return await this.matchService.getMatches();
     }
 
     @Post()
@@ -22,8 +24,8 @@ export class MatchController {
             }
         }
 
-        const winnerPlayer = await this.appService.getPlayer(winner);
-        const loserPlayer = await this.appService.getPlayer(loser);
+        const winnerPlayer = await this.playerService.getPlayer(winner);
+        const loserPlayer = await this.playerService.getPlayer(loser);
 
         if (!winnerPlayer || !loserPlayer) {
             throw new HttpException({
@@ -45,12 +47,14 @@ export class MatchController {
             loserPlayer.rank = Math.round(loserPlayer.rank + K * (0 - expectedScoreLoser));
         } 
 
-        await this.appService.updatePlayer(winnerPlayer);
-        await this.appService.updatePlayer(loserPlayer);
+        await this.playerService.updatePlayer(winnerPlayer);
+        await this.playerService.updatePlayer(loserPlayer);
 
-        this.appService.addMatch({winner: winnerPlayer.id, loser: loserPlayer.id});
+        this.matchService.addMatch({winner: winnerPlayer.id, loser: loserPlayer.id});
+
         this.appService.notifyObservers(winnerPlayer);
         this.appService.notifyObservers(loserPlayer);
+        
         return {
             ok: true,
             code: 200,

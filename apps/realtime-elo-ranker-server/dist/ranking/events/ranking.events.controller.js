@@ -18,13 +18,32 @@ let RankingEventsController = class RankingEventsController {
         this.appService = appService;
     }
     subscribeToRankingUpdates() {
-        return this.appService.getRankingUpdates().pipe((0, rxjs_1.map)((update) => ({ data: JSON.stringify(update) })));
+        return new rxjs_1.Observable(observer => {
+            const rankingUpdates = this.appService.getEventEmitter();
+            rankingUpdates.on('RankingUpdate', (update) => {
+                observer.next(new MessageEvent('message', {
+                    data: {
+                        type: 'RankingUpdate',
+                        player: {
+                            id: update.id,
+                            rank: update.rank,
+                        },
+                    },
+                }));
+            });
+            rankingUpdates.on('error', (err) => {
+                observer.error(err);
+            });
+            return () => {
+                rankingUpdates.removeAllListeners('RankingUpdate');
+                rankingUpdates.removeAllListeners('error');
+            };
+        });
     }
 };
 exports.RankingEventsController = RankingEventsController;
 __decorate([
     (0, common_1.Sse)(),
-    (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", rxjs_1.Observable)

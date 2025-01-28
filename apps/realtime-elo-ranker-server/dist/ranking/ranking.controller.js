@@ -11,13 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RankingController = void 0;
 const common_1 = require("@nestjs/common");
-const app_service_1 = require("../app.service");
+const player_service_1 = require("../player/player.service");
 let RankingController = class RankingController {
-    constructor(appService) {
-        this.appService = appService;
+    constructor(playerService) {
+        this.playerService = playerService;
     }
     async getRanking() {
-        const players = await this.appService.getPlayers();
+        const players = await this.playerService.getPlayers();
         if (players.length === 0) {
             throw new common_1.HttpException({
                 ok: false,
@@ -37,6 +37,6 @@ __decorate([
 ], RankingController.prototype, "getRanking", null);
 exports.RankingController = RankingController = __decorate([
     (0, common_1.Controller)('api/ranking'),
-    __metadata("design:paramtypes", [app_service_1.AppService])
+    __metadata("design:paramtypes", [player_service_1.PlayerService])
 ], RankingController);
 //# sourceMappingURL=ranking.controller.js.map
