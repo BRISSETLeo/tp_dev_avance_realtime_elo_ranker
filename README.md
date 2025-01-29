@@ -15,8 +15,8 @@ Ce guide explique comment utiliser le client et le serveur sans la simulation, a
    - Ajoutez `-w` si le client ne se lance pas correctement.
 
 3. Une fois démarré :
-   - L'API est accessible Ã  `http://localhost:3000/api`
-   - Le client est disponible Ã  `http://localhost:3001`
+   - L'API est accessible à `http://localhost:3000/api`
+   - Le client est disponible à `http://localhost:3001`
 
 > **Attention !!** Le serveur doit être lancé avant le client.
 
