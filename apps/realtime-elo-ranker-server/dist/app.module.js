@@ -18,6 +18,7 @@ const ranking_events_controller_1 = require("./ranking/events/ranking.events.con
 const event_emitter_1 = require("@nestjs/event-emitter");
 const match_service_1 = require("./match/match.service");
 const player_service_1 = require("./player/player.service");
+const api_controller_1 = require("./api/api.controller");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -32,7 +33,7 @@ exports.AppModule = AppModule = __decorate([
                 synchronize: true,
             }),
         ],
-        controllers: [app_controller_1.AppController, player_controller_1.PlayerController, match_controller_1.MatchController, ranking_controller_1.RankingController, ranking_events_controller_1.RankingEventsController],
+        controllers: [app_controller_1.AppController, player_controller_1.PlayerController, match_controller_1.MatchController, ranking_controller_1.RankingController, ranking_events_controller_1.RankingEventsController, api_controller_1.ApiController],
         providers: [app_service_1.AppService, match_service_1.MatchService, player_service_1.PlayerService],
     })
 ], AppModule);

@@ -9,6 +9,7 @@ import { RankingEventsController } from './ranking/events/ranking.events.control
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { MatchService } from './match/match.service';
 import { PlayerService } from './player/player.service';
+import { ApiController } from './api/api.controller';
 
 @Module({
   imports: [
@@ -20,7 +21,7 @@ import { PlayerService } from './player/player.service';
       synchronize: true,
     }),
   ],
-  controllers: [AppController, PlayerController, MatchController, RankingController, RankingEventsController],
+  controllers: [AppController, PlayerController, MatchController, RankingController, RankingEventsController, ApiController],
   providers: [AppService, MatchService, PlayerService],
 })
 export class AppModule {}
