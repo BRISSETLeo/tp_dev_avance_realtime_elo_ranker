@@ -95,9 +95,16 @@ export default function Home() {
       }
     };
     eventSource.onerror = (err) => {
-      // TODO: toast error
-      console.error(err);
       eventSource.close();
+      if (err.eventPhase === EventSource.CLOSED) {
+        setTimeout(() => {
+          const newEventSource = subscribeRankingEvents(API_BASE_URL);
+          newEventSource.onmessage = eventSource.onmessage;
+          newEventSource.onerror = eventSource.onerror;
+        }, 5000); // Retry connection after 5 seconds
+      }else{
+        console.error(err);
+      }
     };
     return () => eventSource.close();
   }, [API_BASE_URL, updateLadderData]);

@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { AppService } from 'src/app.service';
+import { AppService } from '../../app.service';
 export declare class RankingEventsController {
     private readonly appService;
     constructor(appService: AppService);

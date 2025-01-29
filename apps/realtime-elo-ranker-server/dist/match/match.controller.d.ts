@@ -1,6 +1,6 @@
-import { AppService } from 'src/app.service';
+import { AppService } from '../app.service';
 import { MatchService } from './match.service';
-import { PlayerService } from 'src/player/player.service';
+import { PlayerService } from '../player/player.service';
 export declare class MatchController {
     private readonly appService;
     private readonly matchService;
@@ -14,6 +14,7 @@ export declare class MatchController {
     }): Promise<{
         ok: boolean;
         code: number;
+        message: string;
         winner?: undefined;
         loser?: undefined;
     } | {
@@ -27,5 +28,6 @@ export declare class MatchController {
             id: string;
             rank: number;
         };
+        message?: undefined;
     }>;
 }

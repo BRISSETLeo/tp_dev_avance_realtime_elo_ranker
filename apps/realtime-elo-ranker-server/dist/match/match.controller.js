@@ -31,24 +31,34 @@ let MatchController = class MatchController {
         if (draw) {
             return {
                 ok: true,
-                code: 200
+                code: 200,
+                message: 'Match nul'
+            };
+        }
+        else if (!winner || !loser) {
+            return {
+                ok: false,
+                code: 400,
+                message: 'Il manque un joueur'
             };
         }
         const winnerPlayer = await this.playerService.getPlayer(winner);
         const loserPlayer = await this.playerService.getPlayer(loser);
         if (!winnerPlayer || !loserPlayer) {
-            throw new common_1.HttpException({
+            return {
                 ok: false,
-                code: 422,
-                message: 'Un des deux joueurs n\'existe pas'
-            }, common_1.HttpStatus.UNPROCESSABLE_ENTITY);
+                code: 400,
+                message: 'Un des joueurs n\'existe pas'
+            };
         }
         const K = 32;
         if (!draw) {
             const expectedScoreWinner = 1 / (1 + Math.pow(10, (loserPlayer.rank - winnerPlayer.rank) / 400));
             const expectedScoreLoser = 1 / (1 + Math.pow(10, (winnerPlayer.rank - loserPlayer.rank) / 400));
-            winnerPlayer.rank = Math.round(winnerPlayer.rank + K * (1 - expectedScoreWinner));
-            loserPlayer.rank = Math.round(loserPlayer.rank + K * (0 - expectedScoreLoser));
+            winnerPlayer.rank += K * (1 - expectedScoreWinner);
+            loserPlayer.rank += K * (0 - expectedScoreLoser);
+            winnerPlayer.rank = Math.round(winnerPlayer.rank);
+            loserPlayer.rank = Math.round(loserPlayer.rank);
         }
         await this.playerService.updatePlayer(winnerPlayer);
         await this.playerService.updatePlayer(loserPlayer);

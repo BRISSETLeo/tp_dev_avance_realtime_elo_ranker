@@ -1,4 +1,4 @@
-import { Player } from 'src/models/player.entity';
+import { Player } from '../models/player.entity';
 export declare class PlayerService {
     getPlayers(): Promise<string>;
     getAllPlayers(): Promise<{
