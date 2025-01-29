@@ -52,14 +52,12 @@ let MatchController = class MatchController {
             };
         }
         const K = 32;
-        if (!draw) {
-            const expectedScoreWinner = 1 / (1 + Math.pow(10, (loserPlayer.rank - winnerPlayer.rank) / 400));
-            const expectedScoreLoser = 1 / (1 + Math.pow(10, (winnerPlayer.rank - loserPlayer.rank) / 400));
-            winnerPlayer.rank += K * (1 - expectedScoreWinner);
-            loserPlayer.rank += K * (0 - expectedScoreLoser);
-            winnerPlayer.rank = Math.round(winnerPlayer.rank);
-            loserPlayer.rank = Math.round(loserPlayer.rank);
-        }
+        const expectedScoreWinner = 1 / (1 + Math.pow(10, (loserPlayer.rank - winnerPlayer.rank) / 400));
+        const expectedScoreLoser = 1 / (1 + Math.pow(10, (winnerPlayer.rank - loserPlayer.rank) / 400));
+        winnerPlayer.rank += K * (1 - expectedScoreWinner);
+        loserPlayer.rank += K * (0 - expectedScoreLoser);
+        winnerPlayer.rank = Math.round(winnerPlayer.rank);
+        loserPlayer.rank = Math.round(loserPlayer.rank);
         await this.playerService.updatePlayer(winnerPlayer);
         await this.playerService.updatePlayer(loserPlayer);
         this.matchService.addMatch({ winner: winnerPlayer.id, loser: loserPlayer.id });
