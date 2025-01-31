@@ -1,0 +1,805 @@
+[
+  {
+    "name": "realtime-elo-ranker",
+    "version": "1.0.0",
+    "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master",
+    "private": false,
+    "dependencies": {
+      "@nestjs/event-emitter": {
+        "from": "@nestjs/event-emitter",
+        "version": "3.0.0",
+        "resolved": "https://registry.npmjs.org/@nestjs/event-emitter/-/event-emitter-3.0.0.tgz",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/@nestjs+event-emitter@3.0.0_@nestjs+common@11.0.4_reflect-metadata@0.2.2_rxjs@7.8.1__@nestjs+core@11.0.4/node_modules/@nestjs/event-emitter"
+      },
+      "@nestjs/typeorm": {
+        "from": "@nestjs/typeorm",
+        "version": "11.0.0",
+        "resolved": "https://registry.npmjs.org/@nestjs/typeorm/-/typeorm-11.0.0.tgz",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/@nestjs+typeorm@11.0.0_@nestjs+common@11.0.4_reflect-metadata@0.2.2_rxjs@7.8.1__@nestjs+core@_bqqe7h3nmdcxc62bwghmayhnia/node_modules/@nestjs/typeorm"
+      },
+      "axios": {
+        "from": "axios",
+        "version": "1.7.9",
+        "resolved": "https://registry.npmjs.org/axios/-/axios-1.7.9.tgz",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/axios@1.7.9/node_modules/axios"
+      },
+      "js-yaml": {
+        "from": "js-yaml",
+        "version": "4.1.0",
+        "resolved": "https://registry.npmjs.org/js-yaml/-/js-yaml-4.1.0.tgz",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/js-yaml@4.1.0/node_modules/js-yaml"
+      },
+      "sqlite3": {
+        "from": "sqlite3",
+        "version": "5.1.7",
+        "resolved": "https://registry.npmjs.org/sqlite3/-/sqlite3-5.1.7.tgz",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/sqlite3@5.1.7/node_modules/sqlite3"
+      },
+      "typeorm": {
+        "from": "typeorm",
+        "version": "0.3.20",
+        "resolved": "https://registry.npmjs.org/typeorm/-/typeorm-0.3.20.tgz",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/typeorm@0.3.20_sqlite3@5.1.7_ts-node@10.9.2_@swc+core@1.10.9_@swc+helpers@0.5.15__@types+node@22.10.7_typescript@5.7.3_/node_modules/typeorm"
+      }
+    },
+    "devDependencies": {
+      "@nestjs/cli": {
+        "from": "@nestjs/cli",
+        "version": "11.0.2",
+        "resolved": "https://registry.npmjs.org/@nestjs/cli/-/cli-11.0.2.tgz",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/@nestjs+cli@11.0.2_@swc+cli@0.6.0_@swc+core@1.10.9_@swc+helpers@0.5.15__chokidar@4.0.3__@swc+_7mh2yeglzmr2lnybtj5msfzzmu/node_modules/@nestjs/cli"
+      },
+      "generate-react-cli": {
+        "from": "generate-react-cli",
+        "version": "8.4.9",
+        "resolved": "https://registry.npmjs.org/generate-react-cli/-/generate-react-cli-8.4.9.tgz",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/generate-react-cli@8.4.9/node_modules/generate-react-cli"
+      },
+      "motion": {
+        "from": "motion",
+        "version": "11.17.0",
+        "resolved": "https://registry.npmjs.org/motion/-/motion-11.17.0.tgz",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/motion@11.17.0_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/motion"
+      },
+      "next": {
+        "from": "next",
+        "version": "15.1.4",
+        "resolved": "https://registry.npmjs.org/next/-/next-15.1.4.tgz",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/next@15.1.4_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next"
+      },
+      "typescript": {
+        "from": "typescript",
+        "version": "5.7.3",
+        "resolved": "https://registry.npmjs.org/typescript/-/typescript-5.7.3.tgz",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/typescript@5.7.3/node_modules/typescript"
+      }
+    },
+    "unsavedDependencies": {
+      "eslint": {
+        "from": "eslint",
+        "version": "link:node_modules/.pnpm/eslint@9.17.0_jiti@1.21.7/node_modules/eslint",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/eslint@9.17.0_jiti@1.21.7/node_modules/eslint"
+      },
+      "eslint-config-next": {
+        "from": "eslint-config-next",
+        "version": "link:node_modules/.pnpm/eslint-config-next@15.1.4_eslint@9.17.0_jiti@1.21.7__typescript@5.7.3/node_modules/eslint-config-next",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/eslint-config-next@15.1.4_eslint@9.17.0_jiti@1.21.7__typescript@5.7.3/node_modules/eslint-config-next"
+      },
+      "eslint-config-prettier": {
+        "from": "eslint-config-prettier",
+        "version": "link:node_modules/.pnpm/eslint-config-prettier@10.0.1_eslint@9.18.0_jiti@1.21.7_/node_modules/eslint-config-prettier",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/eslint-config-prettier@10.0.1_eslint@9.18.0_jiti@1.21.7_/node_modules/eslint-config-prettier"
+      },
+      "eslint-import-resolver-node": {
+        "from": "eslint-import-resolver-node",
+        "version": "link:node_modules/.pnpm/eslint-import-resolver-node@0.3.9/node_modules/eslint-import-resolver-node",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/eslint-import-resolver-node@0.3.9/node_modules/eslint-import-resolver-node"
+      },
+      "eslint-import-resolver-typescript": {
+        "from": "eslint-import-resolver-typescript",
+        "version": "link:node_modules/.pnpm/eslint-import-resolver-typescript@3.7.0_eslint-plugin-import@2.31.0_eslint@9.17.0_jiti@1.21.7_/node_modules/eslint-import-resolver-typescript",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/eslint-import-resolver-typescript@3.7.0_eslint-plugin-import@2.31.0_eslint@9.17.0_jiti@1.21.7_/node_modules/eslint-import-resolver-typescript"
+      },
+      "eslint-module-utils": {
+        "from": "eslint-module-utils",
+        "version": "link:node_modules/.pnpm/eslint-module-utils@2.12.0_@typescript-eslint+parser@8.19.1_eslint@9.17.0_jiti@1.21.7__typesc_orqwsk4elff4onodg7tpophpuq/node_modules/eslint-module-utils",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/eslint-module-utils@2.12.0_@typescript-eslint+parser@8.19.1_eslint@9.17.0_jiti@1.21.7__typesc_orqwsk4elff4onodg7tpophpuq/node_modules/eslint-module-utils"
+      },
+      "eslint-plugin-import": {
+        "from": "eslint-plugin-import",
+        "version": "link:node_modules/.pnpm/eslint-plugin-import@2.31.0_@typescript-eslint+parser@8.19.1_eslint@9.17.0_jiti@1.21.7__types_glkm7mwvftsy3razlnt2xr7gdq/node_modules/eslint-plugin-import",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/eslint-plugin-import@2.31.0_@typescript-eslint+parser@8.19.1_eslint@9.17.0_jiti@1.21.7__types_glkm7mwvftsy3razlnt2xr7gdq/node_modules/eslint-plugin-import"
+      },
+      "eslint-plugin-jsx-a11y": {
+        "from": "eslint-plugin-jsx-a11y",
+        "version": "link:node_modules/.pnpm/eslint-plugin-jsx-a11y@6.10.2_eslint@9.17.0_jiti@1.21.7_/node_modules/eslint-plugin-jsx-a11y",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/eslint-plugin-jsx-a11y@6.10.2_eslint@9.17.0_jiti@1.21.7_/node_modules/eslint-plugin-jsx-a11y"
+      },
+      "eslint-plugin-prettier": {
+        "from": "eslint-plugin-prettier",
+        "version": "link:node_modules/.pnpm/eslint-plugin-prettier@5.2.3_@types+eslint@9.6.1_eslint-config-prettier@10.0.1_eslint@9.18.0__sizcstpe2feftvoxwsz76hxwsq/node_modules/eslint-plugin-prettier",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/eslint-plugin-prettier@5.2.3_@types+eslint@9.6.1_eslint-config-prettier@10.0.1_eslint@9.18.0__sizcstpe2feftvoxwsz76hxwsq/node_modules/eslint-plugin-prettier"
+      },
+      "eslint-plugin-react": {
+        "from": "eslint-plugin-react",
+        "version": "link:node_modules/.pnpm/eslint-plugin-react@7.37.3_eslint@9.17.0_jiti@1.21.7_/node_modules/eslint-plugin-react",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/eslint-plugin-react@7.37.3_eslint@9.17.0_jiti@1.21.7_/node_modules/eslint-plugin-react"
+      },
+      "eslint-plugin-react-hooks": {
+        "from": "eslint-plugin-react-hooks",
+        "version": "link:node_modules/.pnpm/eslint-plugin-react-hooks@5.1.0_eslint@9.17.0_jiti@1.21.7_/node_modules/eslint-plugin-react-hooks",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/eslint-plugin-react-hooks@5.1.0_eslint@9.17.0_jiti@1.21.7_/node_modules/eslint-plugin-react-hooks"
+      },
+      "eslint-scope": {
+        "from": "eslint-scope",
+        "version": "link:node_modules/.pnpm/eslint-scope@5.1.1/node_modules/eslint-scope",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/eslint-scope@5.1.1/node_modules/eslint-scope"
+      },
+      "eslint-visitor-keys": {
+        "from": "eslint-visitor-keys",
+        "version": "link:node_modules/.pnpm/eslint-visitor-keys@4.2.0/node_modules/eslint-visitor-keys",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/eslint-visitor-keys@4.2.0/node_modules/eslint-visitor-keys"
+      },
+      "prettier": {
+        "from": "prettier",
+        "version": "link:node_modules/.pnpm/prettier@3.4.2/node_modules/prettier",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/prettier@3.4.2/node_modules/prettier"
+      },
+      "prettier-linter-helpers": {
+        "from": "prettier-linter-helpers",
+        "version": "link:node_modules/.pnpm/prettier-linter-helpers@1.0.0/node_modules/prettier-linter-helpers",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/prettier-linter-helpers@1.0.0/node_modules/prettier-linter-helpers"
+      },
+      "typescript-eslint": {
+        "from": "typescript-eslint",
+        "version": "link:node_modules/.pnpm/typescript-eslint@8.21.0_eslint@9.18.0_jiti@1.21.7__typescript@5.7.3/node_modules/typescript-eslint",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/typescript-eslint@8.21.0_eslint@9.18.0_jiti@1.21.7__typescript@5.7.3/node_modules/typescript-eslint"
+      },
+      "@eslint-community/eslint-utils": {
+        "from": "@eslint-community/eslint-utils",
+        "version": "link:node_modules/.pnpm/@eslint-community+eslint-utils@4.4.1_eslint@9.17.0_jiti@1.21.7_/node_modules/@eslint-community/eslint-utils",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/@eslint-community+eslint-utils@4.4.1_eslint@9.17.0_jiti@1.21.7_/node_modules/@eslint-community/eslint-utils"
+      },
+      "@eslint-community/regexpp": {
+        "from": "@eslint-community/regexpp",
+        "version": "link:node_modules/.pnpm/@eslint-community+regexpp@4.12.1/node_modules/@eslint-community/regexpp",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/@eslint-community+regexpp@4.12.1/node_modules/@eslint-community/regexpp"
+      },
+      "@eslint/config-array": {
+        "from": "@eslint/config-array",
+        "version": "link:node_modules/.pnpm/@eslint+config-array@0.19.1/node_modules/@eslint/config-array",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/@eslint+config-array@0.19.1/node_modules/@eslint/config-array"
+      },
+      "@eslint/core": {
+        "from": "@eslint/core",
+        "version": "link:node_modules/.pnpm/@eslint+core@0.9.1/node_modules/@eslint/core",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/@eslint+core@0.9.1/node_modules/@eslint/core"
+      },
+      "@eslint/eslintrc": {
+        "from": "@eslint/eslintrc",
+        "version": "link:node_modules/.pnpm/@eslint+eslintrc@3.2.0/node_modules/@eslint/eslintrc",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/@eslint+eslintrc@3.2.0/node_modules/@eslint/eslintrc"
+      },
+      "@eslint/js": {
+        "from": "@eslint/js",
+        "version": "link:node_modules/.pnpm/@eslint+js@9.18.0/node_modules/@eslint/js",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/@eslint+js@9.18.0/node_modules/@eslint/js"
+      },
+      "@eslint/object-schema": {
+        "from": "@eslint/object-schema",
+        "version": "link:node_modules/.pnpm/@eslint+object-schema@2.1.5/node_modules/@eslint/object-schema",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/@eslint+object-schema@2.1.5/node_modules/@eslint/object-schema"
+      },
+      "@eslint/plugin-kit": {
+        "from": "@eslint/plugin-kit",
+        "version": "link:node_modules/.pnpm/@eslint+plugin-kit@0.2.4/node_modules/@eslint/plugin-kit",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/@eslint+plugin-kit@0.2.4/node_modules/@eslint/plugin-kit"
+      },
+      "@rushstack/eslint-patch": {
+        "from": "@rushstack/eslint-patch",
+        "version": "link:node_modules/.pnpm/@rushstack+eslint-patch@1.10.5/node_modules/@rushstack/eslint-patch",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/@rushstack+eslint-patch@1.10.5/node_modules/@rushstack/eslint-patch"
+      },
+      "@next/eslint-plugin-next": {
+        "from": "@next/eslint-plugin-next",
+        "version": "link:node_modules/.pnpm/@next+eslint-plugin-next@15.1.4/node_modules/@next/eslint-plugin-next",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/@next+eslint-plugin-next@15.1.4/node_modules/@next/eslint-plugin-next"
+      },
+      "@types/eslint": {
+        "from": "@types/eslint",
+        "version": "link:node_modules/.pnpm/@types+eslint@9.6.1/node_modules/@types/eslint",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/@types+eslint@9.6.1/node_modules/@types/eslint"
+      },
+      "@types/eslint-scope": {
+        "from": "@types/eslint-scope",
+        "version": "link:node_modules/.pnpm/@types+eslint-scope@3.7.7/node_modules/@types/eslint-scope",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/@types+eslint-scope@3.7.7/node_modules/@types/eslint-scope"
+      },
+      "@typescript-eslint/eslint-plugin": {
+        "from": "@typescript-eslint/eslint-plugin",
+        "version": "link:node_modules/.pnpm/@typescript-eslint+eslint-plugin@8.19.1_@typescript-eslint+parser@8.19.1_eslint@9.17.0_jiti@1_z3k53n53qj7ckcu5lhwfltxa2u/node_modules/@typescript-eslint/eslint-plugin",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/@typescript-eslint+eslint-plugin@8.19.1_@typescript-eslint+parser@8.19.1_eslint@9.17.0_jiti@1_z3k53n53qj7ckcu5lhwfltxa2u/node_modules/@typescript-eslint/eslint-plugin"
+      },
+      "@typescript-eslint/parser": {
+        "from": "@typescript-eslint/parser",
+        "version": "link:node_modules/.pnpm/@typescript-eslint+parser@8.19.1_eslint@9.17.0_jiti@1.21.7__typescript@5.7.3/node_modules/@typescript-eslint/parser",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/@typescript-eslint+parser@8.19.1_eslint@9.17.0_jiti@1.21.7__typescript@5.7.3/node_modules/@typescript-eslint/parser"
+      },
+      "@typescript-eslint/scope-manager": {
+        "from": "@typescript-eslint/scope-manager",
+        "version": "link:node_modules/.pnpm/@typescript-eslint+scope-manager@8.19.1/node_modules/@typescript-eslint/scope-manager",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/@typescript-eslint+scope-manager@8.19.1/node_modules/@typescript-eslint/scope-manager"
+      },
+      "@typescript-eslint/type-utils": {
+        "from": "@typescript-eslint/type-utils",
+        "version": "link:node_modules/.pnpm/@typescript-eslint+type-utils@8.19.1_eslint@9.17.0_jiti@1.21.7__typescript@5.7.3/node_modules/@typescript-eslint/type-utils",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/@typescript-eslint+type-utils@8.19.1_eslint@9.17.0_jiti@1.21.7__typescript@5.7.3/node_modules/@typescript-eslint/type-utils"
+      },
+      "@typescript-eslint/types": {
+        "from": "@typescript-eslint/types",
+        "version": "link:node_modules/.pnpm/@typescript-eslint+types@8.19.1/node_modules/@typescript-eslint/types",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/@typescript-eslint+types@8.19.1/node_modules/@typescript-eslint/types"
+      },
+      "@typescript-eslint/typescript-estree": {
+        "from": "@typescript-eslint/typescript-estree",
+        "version": "link:node_modules/.pnpm/@typescript-eslint+typescript-estree@8.19.1_typescript@5.7.3/node_modules/@typescript-eslint/typescript-estree",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/@typescript-eslint+typescript-estree@8.19.1_typescript@5.7.3/node_modules/@typescript-eslint/typescript-estree"
+      },
+      "@typescript-eslint/utils": {
+        "from": "@typescript-eslint/utils",
+        "version": "link:node_modules/.pnpm/@typescript-eslint+utils@8.21.0_eslint@9.18.0_jiti@1.21.7__typescript@5.7.3/node_modules/@typescript-eslint/utils",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/@typescript-eslint+utils@8.21.0_eslint@9.18.0_jiti@1.21.7__typescript@5.7.3/node_modules/@typescript-eslint/utils"
+      },
+      "@typescript-eslint/visitor-keys": {
+        "from": "@typescript-eslint/visitor-keys",
+        "version": "link:node_modules/.pnpm/@typescript-eslint+visitor-keys@8.19.1/node_modules/@typescript-eslint/visitor-keys",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/.pnpm/@typescript-eslint+visitor-keys@8.19.1/node_modules/@typescript-eslint/visitor-keys"
+      },
+      "ansi-escapes": {
+        "from": "ansi-escapes",
+        "version": "4.3.2",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/ansi-escapes"
+      },
+      "ansi-regex": {
+        "from": "ansi-regex",
+        "version": "5.0.1",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/ansi-regex"
+      },
+      "ansi-styles": {
+        "from": "ansi-styles",
+        "version": "4.3.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/ansi-styles"
+      },
+      "balanced-match": {
+        "from": "balanced-match",
+        "version": "1.0.2",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/balanced-match"
+      },
+      "base64-js": {
+        "from": "base64-js",
+        "version": "1.5.1",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/base64-js"
+      },
+      "bl": {
+        "from": "bl",
+        "version": "4.1.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/bl"
+      },
+      "buffer": {
+        "from": "buffer",
+        "version": "5.7.1",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/buffer"
+      },
+      "brace-expansion": {
+        "from": "brace-expansion",
+        "version": "1.1.11",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/brace-expansion"
+      },
+      "busboy": {
+        "from": "busboy",
+        "version": "1.6.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/busboy"
+      },
+      "camelcase": {
+        "from": "camelcase",
+        "version": "5.3.1",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/camelcase"
+      },
+      "caniuse-lite": {
+        "from": "caniuse-lite",
+        "version": "1.0.30001695",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/caniuse-lite"
+      },
+      "chalk": {
+        "from": "chalk",
+        "version": "5.3.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/chalk"
+      },
+      "chardet": {
+        "from": "chardet",
+        "version": "0.7.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/chardet"
+      },
+      "cli-cursor": {
+        "from": "cli-cursor",
+        "version": "3.1.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/cli-cursor"
+      },
+      "cli-spinners": {
+        "from": "cli-spinners",
+        "version": "2.9.2",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/cli-spinners"
+      },
+      "cli-width": {
+        "from": "cli-width",
+        "version": "4.1.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/cli-width"
+      },
+      "client-only": {
+        "from": "client-only",
+        "version": "0.0.1",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/client-only"
+      },
+      "cliui": {
+        "from": "cliui",
+        "version": "6.0.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/cliui"
+      },
+      "clone": {
+        "from": "clone",
+        "version": "1.0.4",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/clone"
+      },
+      "color": {
+        "from": "color",
+        "version": "4.2.3",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/color"
+      },
+      "color-convert": {
+        "from": "color-convert",
+        "version": "2.0.1",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/color-convert"
+      },
+      "color-name": {
+        "from": "color-name",
+        "version": "1.1.4",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/color-name"
+      },
+      "color-string": {
+        "from": "color-string",
+        "version": "1.9.1",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/color-string"
+      },
+      "commander": {
+        "from": "commander",
+        "version": "12.1.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/commander"
+      },
+      "concat-map": {
+        "from": "concat-map",
+        "version": "0.0.1",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/concat-map"
+      },
+      "decamelize": {
+        "from": "decamelize",
+        "version": "1.2.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/decamelize"
+      },
+      "deep-keys": {
+        "from": "deep-keys",
+        "version": "0.5.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/deep-keys"
+      },
+      "defaults": {
+        "from": "defaults",
+        "version": "1.0.4",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/defaults"
+      },
+      "detect-libc": {
+        "from": "detect-libc",
+        "version": "2.0.3",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/detect-libc"
+      },
+      "dotenv": {
+        "from": "dotenv",
+        "version": "16.4.5",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/dotenv"
+      },
+      "emoji-regex": {
+        "from": "emoji-regex",
+        "version": "8.0.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/emoji-regex"
+      },
+      "escape-string-regexp": {
+        "from": "escape-string-regexp",
+        "version": "1.0.5",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/escape-string-regexp"
+      },
+      "external-editor": {
+        "from": "external-editor",
+        "version": "3.1.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/external-editor"
+      },
+      "find-up": {
+        "from": "find-up",
+        "version": "4.1.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/find-up"
+      },
+      "framer-motion": {
+        "from": "framer-motion",
+        "version": "11.18.2",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/framer-motion"
+      },
+      "fs-extra": {
+        "from": "fs-extra",
+        "version": "11.2.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/fs-extra"
+      },
+      "get-caller-file": {
+        "from": "get-caller-file",
+        "version": "2.0.5",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/get-caller-file"
+      },
+      "graceful-fs": {
+        "from": "graceful-fs",
+        "version": "4.2.11",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/graceful-fs"
+      },
+      "has-flag": {
+        "from": "has-flag",
+        "version": "4.0.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/has-flag"
+      },
+      "iconv-lite": {
+        "from": "iconv-lite",
+        "version": "0.4.24",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/iconv-lite"
+      },
+      "ieee754": {
+        "from": "ieee754",
+        "version": "1.2.1",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/ieee754"
+      },
+      "inherits": {
+        "from": "inherits",
+        "version": "2.0.4",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/inherits"
+      },
+      "inquirer": {
+        "from": "inquirer",
+        "version": "9.3.7",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/inquirer"
+      },
+      "is-arrayish": {
+        "from": "is-arrayish",
+        "version": "0.3.2",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/is-arrayish"
+      },
+      "is-fullwidth-code-point": {
+        "from": "is-fullwidth-code-point",
+        "version": "3.0.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/is-fullwidth-code-point"
+      },
+      "is-interactive": {
+        "from": "is-interactive",
+        "version": "1.0.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/is-interactive"
+      },
+      "is-unicode-supported": {
+        "from": "is-unicode-supported",
+        "version": "0.1.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/is-unicode-supported"
+      },
+      "jsonfile": {
+        "from": "jsonfile",
+        "version": "6.1.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/jsonfile"
+      },
+      "locate-path": {
+        "from": "locate-path",
+        "version": "5.0.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/locate-path"
+      },
+      "lodash": {
+        "from": "lodash",
+        "version": "4.17.21",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/lodash"
+      },
+      "log-symbols": {
+        "from": "log-symbols",
+        "version": "4.1.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/log-symbols"
+      },
+      "mimic-fn": {
+        "from": "mimic-fn",
+        "version": "2.1.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/mimic-fn"
+      },
+      "minimatch": {
+        "from": "minimatch",
+        "version": "3.0.5",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/minimatch"
+      },
+      "motion-dom": {
+        "from": "motion-dom",
+        "version": "11.18.1",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/motion-dom"
+      },
+      "motion-utils": {
+        "from": "motion-utils",
+        "version": "11.18.1",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/motion-utils"
+      },
+      "mute-stream": {
+        "from": "mute-stream",
+        "version": "1.0.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/mute-stream"
+      },
+      "nanoid": {
+        "from": "nanoid",
+        "version": "3.3.8",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/nanoid"
+      },
+      "onetime": {
+        "from": "onetime",
+        "version": "5.1.2",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/onetime"
+      },
+      "ora": {
+        "from": "ora",
+        "version": "5.4.1",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/ora"
+      },
+      "os-tmpdir": {
+        "from": "os-tmpdir",
+        "version": "1.0.2",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/os-tmpdir"
+      },
+      "p-limit": {
+        "from": "p-limit",
+        "version": "2.3.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/p-limit"
+      },
+      "p-locate": {
+        "from": "p-locate",
+        "version": "4.1.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/p-locate"
+      },
+      "p-try": {
+        "from": "p-try",
+        "version": "2.2.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/p-try"
+      },
+      "path-exists": {
+        "from": "path-exists",
+        "version": "4.0.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/path-exists"
+      },
+      "picocolors": {
+        "from": "picocolors",
+        "version": "1.1.1",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/picocolors"
+      },
+      "postcss": {
+        "from": "postcss",
+        "version": "8.4.31",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/postcss"
+      },
+      "react": {
+        "from": "react",
+        "version": "19.0.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/react"
+      },
+      "react-dom": {
+        "from": "react-dom",
+        "version": "19.0.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/react-dom"
+      },
+      "readable-stream": {
+        "from": "readable-stream",
+        "version": "3.6.2",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/readable-stream"
+      },
+      "replace": {
+        "from": "replace",
+        "version": "1.2.2",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/replace"
+      },
+      "require-directory": {
+        "from": "require-directory",
+        "version": "2.1.1",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/require-directory"
+      },
+      "require-main-filename": {
+        "from": "require-main-filename",
+        "version": "2.0.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/require-main-filename"
+      },
+      "restore-cursor": {
+        "from": "restore-cursor",
+        "version": "3.1.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/restore-cursor"
+      },
+      "run-async": {
+        "from": "run-async",
+        "version": "3.0.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/run-async"
+      },
+      "rxjs": {
+        "from": "rxjs",
+        "version": "7.8.1",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/rxjs"
+      },
+      "safe-buffer": {
+        "from": "safe-buffer",
+        "version": "5.2.1",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/safe-buffer"
+      },
+      "safer-buffer": {
+        "from": "safer-buffer",
+        "version": "2.1.2",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/safer-buffer"
+      },
+      "scheduler": {
+        "from": "scheduler",
+        "version": "0.25.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/scheduler"
+      },
+      "semver": {
+        "from": "semver",
+        "version": "7.6.3",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/semver"
+      },
+      "set-blocking": {
+        "from": "set-blocking",
+        "version": "2.0.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/set-blocking"
+      },
+      "sharp": {
+        "from": "sharp",
+        "version": "0.33.5",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/sharp"
+      },
+      "signal-exit": {
+        "from": "signal-exit",
+        "version": "3.0.7",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/signal-exit"
+      },
+      "simple-swizzle": {
+        "from": "simple-swizzle",
+        "version": "0.2.2",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/simple-swizzle"
+      },
+      "source-map-js": {
+        "from": "source-map-js",
+        "version": "1.2.1",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/source-map-js"
+      },
+      "streamsearch": {
+        "from": "streamsearch",
+        "version": "1.1.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/streamsearch"
+      },
+      "string-width": {
+        "from": "string-width",
+        "version": "4.2.3",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/string-width"
+      },
+      "string_decoder": {
+        "from": "string_decoder",
+        "version": "1.3.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/string_decoder"
+      },
+      "strip-ansi": {
+        "from": "strip-ansi",
+        "version": "6.0.1",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/strip-ansi"
+      },
+      "styled-jsx": {
+        "from": "styled-jsx",
+        "version": "5.1.6",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/styled-jsx"
+      },
+      "supports-color": {
+        "from": "supports-color",
+        "version": "7.2.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/supports-color"
+      },
+      "tmp": {
+        "from": "tmp",
+        "version": "0.0.33",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/tmp"
+      },
+      "tslib": {
+        "from": "tslib",
+        "version": "2.8.1",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/tslib"
+      },
+      "type-fest": {
+        "from": "type-fest",
+        "version": "0.21.3",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/type-fest"
+      },
+      "universalify": {
+        "from": "universalify",
+        "version": "2.0.1",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/universalify"
+      },
+      "util-deprecate": {
+        "from": "util-deprecate",
+        "version": "1.0.2",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/util-deprecate"
+      },
+      "wcwidth": {
+        "from": "wcwidth",
+        "version": "1.0.1",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/wcwidth"
+      },
+      "which-module": {
+        "from": "which-module",
+        "version": "2.0.1",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/which-module"
+      },
+      "wrap-ansi": {
+        "from": "wrap-ansi",
+        "version": "6.2.0",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/wrap-ansi"
+      },
+      "y18n": {
+        "from": "y18n",
+        "version": "4.0.3",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/y18n"
+      },
+      "yargs": {
+        "from": "yargs",
+        "version": "15.4.1",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/yargs"
+      },
+      "yargs-parser": {
+        "from": "yargs-parser",
+        "version": "18.1.3",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/yargs-parser"
+      },
+      "yoctocolors-cjs": {
+        "from": "yoctocolors-cjs",
+        "version": "2.1.2",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/yoctocolors-cjs"
+      },
+      "@img/sharp-libvips-linux-x64": {
+        "from": "@img/sharp-libvips-linux-x64",
+        "version": "1.0.4",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/@img/sharp-libvips-linux-x64"
+      },
+      "@img/sharp-linux-x64": {
+        "from": "@img/sharp-linux-x64",
+        "version": "0.33.5",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/@img/sharp-linux-x64"
+      },
+      "@inquirer/figures": {
+        "from": "@inquirer/figures",
+        "version": "1.0.9",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/@inquirer/figures"
+      },
+      "@swc/counter": {
+        "from": "@swc/counter",
+        "version": "0.1.3",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/@swc/counter"
+      },
+      "@swc/helpers": {
+        "from": "@swc/helpers",
+        "version": "0.5.15",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/@swc/helpers"
+      },
+      "@next/env": {
+        "from": "@next/env",
+        "version": "15.1.4",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/@next/env"
+      },
+      "@next/swc-linux-x64-gnu": {
+        "from": "@next/swc-linux-x64-gnu",
+        "version": "15.1.4",
+        "path": "/home/iut45/Etudiants/o22202357/WinHome/Semestre 6/QUALITE_DEV/TP1-realtime-elo-ranker-master/node_modules/@next/swc-linux-x64-gnu"
+      }
+    }
+  }
+]

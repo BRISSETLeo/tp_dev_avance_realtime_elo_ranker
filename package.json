@@ -25,6 +25,7 @@
     "@nestjs/event-emitter": "^3.0.0",
     "@nestjs/typeorm": "^11.0.0",
     "axios": "^1.7.9",
+    "js-yaml": "^4.1.0",
     "sqlite3": "^5.1.7",
     "typeorm": "^0.3.20"
   }

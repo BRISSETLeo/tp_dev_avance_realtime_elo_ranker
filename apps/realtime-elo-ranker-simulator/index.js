@@ -1,4 +1,6 @@
 const axios = require('axios');
+const fs = require('fs');
+const yaml = require('js-yaml');
 const API = 'http://localhost:3000/api';
 
 const players = [];
@@ -29,7 +31,20 @@ const simulateMatch = async (player1, player2, draw) => {
 getPlayers().then((data) => {
     players.push(...data);
     if(players.length < 2) {
-        console.error('Not enough players to simulate a match');
+        try {
+            const fileContents = fs.readFileSync('apps/realtime-elo-ranker-simulator/players.yml', 'utf8');
+            const yamlData = yaml.load(fileContents);
+            const yamlPlayers = yamlData.players;
+            if (Array.isArray(yamlPlayers)) {
+                yamlPlayers.forEach(async player => {
+                    await axios.post(`${API}/player`, {id: player});
+                });
+            } else {
+                console.error("Le fichier YAML n'a pas un format valide.");
+            }
+        } catch (e) {
+            console.error(e);
+        }        
         return;
     }
     const randomPlayerIndex = () => Math.floor(Math.random() * players.length);
