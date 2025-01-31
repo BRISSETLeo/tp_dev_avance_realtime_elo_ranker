@@ -18,6 +18,11 @@ N'oubliez pas d'installer nestjs:
 pnpm add --save-dev @nestjs/cli -w
 ```
 
+Dernière commande à exécuter pour que tout fonctionne :
+```bash
+pnpm run libs:ui:build
+```
+
 # Utilisation du Client, du Serveur et du Simulateur
 
 Ce guide explique comment utiliser le client et le serveur sans la simulation, ainsi que comment exécuter la simulation des matchs.
