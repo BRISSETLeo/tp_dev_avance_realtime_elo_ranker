@@ -1,6 +1,6 @@
 ## Installation des dépendances
 
-Avant de commencer, assurez-vous que toutes les dépendances du projet soient installés :
+Avant de commencer, assurez-vous que toutes les dépendances du projet sont installées :
 
 ```bash
 pnpm install -w
