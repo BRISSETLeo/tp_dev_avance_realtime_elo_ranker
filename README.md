@@ -12,6 +12,12 @@ Si vous rencontrez des erreurs, essayez sans `-w` :
 pnpm install
 ```
 
+N'oubliez pas d'installer nestjs:
+
+```bash
+pnpm add --save-dev @nestjs/cli -w
+```
+
 # Utilisation du Client, du Serveur et du Simulateur
 
 Ce guide explique comment utiliser le client et le serveur sans la simulation, ainsi que comment exécuter la simulation des matchs.
