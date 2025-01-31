@@ -14,8 +14,6 @@ const getPlayers = async () => {
     }
 };
 
-
-
 const simulateMatch = async (player1, player2, draw) => {
     try {
         console.log('Simulating match...');
@@ -28,7 +26,7 @@ const simulateMatch = async (player1, player2, draw) => {
     }
 };
 
-getPlayers().then((data) => {
+getPlayers().then(async (data) => {
     players.push(...data);
     if(players.length < 2) {
         try {
@@ -36,15 +34,21 @@ getPlayers().then((data) => {
             const yamlData = yaml.load(fileContents);
             const yamlPlayers = yamlData.players;
             if (Array.isArray(yamlPlayers)) {
-                yamlPlayers.forEach(async player => {
-                    await axios.post(`${API}/player`, {id: player});
-                });
+                for (const player of yamlPlayers) {
+                    await axios.post(`${API}/player`, { id: player });
+                    players.push({id: player, rank: 1000});
+                }
             } else {
                 console.error("Le fichier YAML n'a pas un format valide.");
+                return;
             }
         } catch (e) {
             console.error(e);
-        }        
+            return;
+        }
+    }
+    if (players.length < 2) {
+        console.error("Not enough players to simulate a match.");
         return;
     }
     const randomPlayerIndex = () => Math.floor(Math.random() * players.length);
