@@ -1,3 +1,17 @@
+## Installation des dépendances
+
+Avant de commencer, assurez-vous d'installer toutes les dépendances du projet :
+
+```bash
+pnpm install -w
+```
+
+Si vous rencontrez des erreurs, essayez sans `-w` :
+
+```bash
+pnpm install
+```
+
 # Utilisation du Client, du Serveur et du Simulateur
 
 Ce guide explique comment utiliser le client et le serveur sans la simulation, ainsi que comment exécuter la simulation des matchs.
